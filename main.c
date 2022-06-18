@@ -6,7 +6,7 @@
 /*   By: anruland <anruland@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 10:37:01 by anruland          #+#    #+#             */
-/*   Updated: 2022/06/18 09:51:08 by anruland         ###   ########.fr       */
+/*   Updated: 2022/06/18 10:19:09 by anruland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,11 @@ int	main(int ac, char **av)
 	while (i < LINES)
 	{
 		line = get_next_line(STDIN_FILENO);
-		if (strstr(line, "eating") != NULL)
+		if (line && strstr(line, "eating") != NULL)
 		{
 			timing[j] = atoi(line);
 			philo_nr = strchr(line, ' ');
+			// printf("nr %d\n", atoi(philo_nr));
 			philos[j] = atoi(philo_nr);
 			j++;
 		}
@@ -48,19 +49,22 @@ int	main(int ac, char **av)
 	// 	philo[i] = 0;
 	// 	i++;
 	// }
-	i = 0;
-	while (i< LINES)
-	{
-		printf("death %d timing %d philo %d\n", death, timing[i], philo[i]);
-		i++;
-	}
-	// while (i < LINES)
+	// i = 0;
+	// while (i < j)
 	// {
-	// 	philo[philos[i]] = timing[i] - philo[philos[i]];
-	// 	if (philo[philos[i]] > death)
-	// 		printf("Timing error philo %d - took %d\n", philos[i], philo[philos[i]]);
+	// 	printf("death %d timing %d philo %d\n", death, timing[i], philos[i]);
 	// 	i++;
 	// }
+	i = 0;
+	while (i < j)
+	{
+		// printf("philo %d before %d - ", philos[i], philo[philos[i]]);
+		// printf("timing %d =%d\n", timing[i], philo[philos[i]]);
+		if (timing[i] - philo[philos[i]] > death)
+			printf("Timing error philo %d - took %d\n", philos[i], philo[philos[i]]);
+		philo[philos[i]] = timing[i];
+		i++;
+	}
 	printf("test end\n");
 	free(timing);
 	free(philos);
