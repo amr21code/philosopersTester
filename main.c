@@ -6,7 +6,7 @@
 /*   By: anruland <anruland@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 10:37:01 by anruland          #+#    #+#             */
-/*   Updated: 2022/06/18 10:19:09 by anruland         ###   ########.fr       */
+/*   Updated: 2022/06/18 10:50:56 by anruland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,13 @@ int	main(int ac, char **av)
 	int		*philos;
 	int		*philo;
 	int		death = atoi(av[2]);
+	int		meal = atoi(av[3]);
 	int		i;
 	int		j;
+	int		k;
 	char	*line;
 	char	*philo_nr;
+	int		meals;
 
 	i = 0;
 	j = 0;
@@ -38,6 +41,7 @@ int	main(int ac, char **av)
 			philo_nr = strchr(line, ' ');
 			// printf("nr %d\n", atoi(philo_nr));
 			philos[j] = atoi(philo_nr);
+			// printf("j %d\n", j);
 			j++;
 		}
 		free(line);
@@ -56,14 +60,37 @@ int	main(int ac, char **av)
 	// 	i++;
 	// }
 	i = 0;
+	printf("Timing test:\n");
 	while (i < j)
 	{
 		// printf("philo %d before %d - ", philos[i], philo[philos[i]]);
 		// printf("timing %d =%d\n", timing[i], philo[philos[i]]);
 		if (timing[i] - philo[philos[i]] > death)
-			printf("Timing error philo %d - took %d\n", philos[i], philo[philos[i]]);
+			printf("Timing error philo %d - took %d\n", philos[i], timing[i] - philo[philos[i]]);
 		philo[philos[i]] = timing[i];
 		i++;
+	}
+	i = 1;
+	if (meal > 0)
+	{
+		printf("Meal test:\n");
+		while (i < atoi(av[1]))
+		{
+			meals = 0;
+			k = 0;
+			while (k < j)
+			{
+				if (philos[k] == i)
+				{
+					// printf("philo %d eating\n", philos[k]);
+					meals++;
+				}
+				k++;
+			}
+			if (meals != meal)
+				printf("philo %d did not eat enough (%d)\n",i,  meals);
+			i++;
+		}
 	}
 	printf("test end\n");
 	free(timing);
