@@ -6,7 +6,7 @@
 /*   By: anruland <anruland@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 10:37:01 by anruland          #+#    #+#             */
-/*   Updated: 2022/06/18 10:50:56 by anruland         ###   ########.fr       */
+/*   Updated: 2022/06/18 19:00:19 by anruland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	main(int ac, char **av)
 	if (meal > 0)
 	{
 		printf("Meal test:\n");
-		while (i < atoi(av[1]))
+		while (i <= atoi(av[1]))
 		{
 			meals = 0;
 			k = 0;
