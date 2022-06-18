@@ -6,7 +6,7 @@
 /*   By: anruland <anruland@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 10:37:01 by anruland          #+#    #+#             */
-/*   Updated: 2022/06/18 19:00:19 by anruland         ###   ########.fr       */
+/*   Updated: 2022/06/18 19:07:21 by anruland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int	main(int ac, char **av)
 				}
 				k++;
 			}
-			if (meals != meal)
+			if (meals < meal)
 				printf("philo %d did not eat enough (%d)\n",i,  meals);
 			i++;
 		}
