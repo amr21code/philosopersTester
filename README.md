@@ -1,6 +1,7 @@
 # philosopersTester
 
 No output means everything is fine
+
 uses a pipe / redirection to get the input
 
 Timing test
