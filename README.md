@@ -2,7 +2,7 @@
 
 Timing test
 
-needed format: #timing #philo_no action
+needed format: #timing #philo_no #meal_no
 
 e.g.: 400 2 is eating
 
